@@ -1,0 +1,14 @@
+[
+  {
+    "id": "ep-1",
+    "timestamp": "2026-09-27T07:57:48",
+    "source": "interaction",
+    "user_input": "안녕! 오늘 기분이 좋아.",
+    "summary": "사용자 입력을 처리하고 행동을 선택한 경험",
+    "action": "모의실행 모드입니다. 캐릭터와 AI 인지 구조가 연결되었습니다.",
+    "outcome": null,
+    "lessons": ["현재 경험을 다음 판단에 참고한다."],
+    "emotional_tags": ["관심"],
+    "conflict": {"impulse":"빠르게 답하고 싶음","goal_pressure":"정확해야 함","tension":25,"resolution":"간단한 확인 후 답변"}
+  }
+]
