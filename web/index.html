@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07131f"><title>SELF AI · Digital Lifeform</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div id="app">
+<canvas id="scene" aria-label="Self AI 캐릭터"></canvas>
+<header class="topbar"><div><div class="brand">SELF AI</div><div class="subbrand">DIGITAL LIFEFORM</div></div><button id="observeBtn" class="ghost" type="button">관찰</button></header>
+<section id="statusBlock" class="status idle"><div id="statusTitle">대기 중</div><div id="statusDetail">천천히 유영하고 있습니다</div><div id="statusSteps"></div></section>
+<div id="bubble" class="bubble hidden"><div class="bubble-label">SELF AI</div><div id="bubbleText"></div><div class="tail"></div></div>
+<form id="composer" class="composer"><input id="messageInput" autocomplete="off" placeholder="말을 걸어보세요…"><button id="sendBtn" type="submit">보내기</button></form>
+<button id="observeFab" class="observe-fab" type="button" aria-label="내부 상태 보기">◌</button>
+<aside id="observer" class="drawer hidden" aria-hidden="true"><div class="drawer-head"><strong>내부 관찰</strong><button id="closeObserver" class="close ghost" type="button">×</button></div><div id="observerContent"></div></aside>
+</div><script src="/static/app.js"></script>
+</body></html>
