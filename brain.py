@@ -70,8 +70,18 @@ def call_llm(stage,instructions,payload):
     raise RuntimeError(f"Gemini 호출 실패: {last}")
 
 def compact_state(state):
-    return {"self_model":state["self_model"],"internal_state":state["internal_state"],"goals":state["goals"],"strategy":state["strategy"],"recent_episodes":state["episodic"][-8:],"semantic_memory":state["semantic"][-20:]}
+    print("DEBUG semantic type:", type(state.get("semantic")))
+    print("DEBUG semantic value:", state.get("semantic"))
 
+    return {
+        "self_model": state["self_model"],
+        "internal_state": state["internal_state"],
+        "goals": state["goals"],
+        "strategy": state["strategy"],
+        "recent_episodes": state["episodic"][-8:],
+        "semantic_memory": state["semantic"][-20:]
+    }
+    
 def unconscious_stage(user_input,state):
     payload=f"""외부 입력을 빠르게 자동 처리하라. 최종 답변은 만들지 마라.
 JSON:
