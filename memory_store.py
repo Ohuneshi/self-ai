@@ -57,10 +57,11 @@ class MemoryStore:
         finally:
             conn.close()
 
-    def load_state(self, user_id: str, fallback: dict[str, Any]) -> dict[str, Any]:
-        self.ensure_user(user_id)
-        conn = self._connect()
-        try:
+def load_state(self, user_id: str, fallback: dict[str, Any]) -> dict[str, Any]:
+    print("DEBUG USER ID:", user_id)
+
+    self.ensure_user(user_id)
+    conn = self._connect()        try:
             out = {}
             for row in conn.execute("SELECT key, value_json FROM memory_state WHERE user_id = ?", (user_id,)).fetchall():
                 key, raw = (row["key"], row["value_json"]) if hasattr(row, "keys") else row
