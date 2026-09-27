@@ -117,7 +117,7 @@ def clamp(v,lo=0,hi=100):
     except:return lo
 
 def apply_reflection(state,reflection,context,feedback):
-    ep={"id":f"ep-{len(state["episodic"])+1}","timestamp":now(),"source":"interaction","user_input":context["user_input"],"summary":reflection.get("episode_summary",context["consciousness"].get("situation","")),"action":context["action"].get("final_response",""),"outcome":feedback,"lessons":[reflection.get("lesson","")],"emotional_tags":[context["unconscious"].get("emotion","")],"conflict":context["reasoning"].get("conflict",{})}
+    ep={"id":f"ep-{len(state['episodic'])+1}","timestamp":now(),"source":"interaction","user_input":context["user_input"],"summary":reflection.get("episode_summary",context["consciousness"].get("situation","")),"action":context["action"].get("final_response",""),"outcome":feedback,"lessons":[reflection.get("lesson","")],"emotional_tags":[context["unconscious"].get("emotion","")],"conflict":context["reasoning"].get("conflict",{})}
     state["episodic"].append(ep)
     for item in reflection.get("new_semantic_memories",[]):
         if isinstance(item,str) and item.strip(): state["semantic"].append({"timestamp":now(),"memory":item.strip()})
