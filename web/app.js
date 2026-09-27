@@ -20,7 +20,7 @@ let mode='idle', expression='neutral', busy=false;
 let statusIndex=-1;
 let jobId=null;
 let pointer={x:0,y:0,inside:false};
-let drag={active:false,startX:0,startY:0,x:0,y:0,strength:0,release:0};
+let dragState={active:false,startX:0,startY:0,x:0,y:0,strength:0,release:0};
 let smoothGaze={x:0,y:0}, floatY=0, floatTarget=0;
 let bodyPull={x:0,y:0,tx:0,ty:0};
 let particles=[];
