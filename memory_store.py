@@ -61,17 +61,23 @@ def load_state(self, user_id: str, fallback: dict[str, Any]) -> dict[str, Any]:
     print("DEBUG USER ID:", user_id)
 
     self.ensure_user(user_id)
-    conn = self._connect()        try:
-            out = {}
-            for row in conn.execute("SELECT key, value_json FROM memory_state WHERE user_id = ?", (user_id,)).fetchall():
-                key, raw = (row["key"], row["value_json"]) if hasattr(row, "keys") else row
-                out[key] = json.loads(raw)
-            for key, val in fallback.items():
-                out.setdefault(key, val)
-            return out
-        finally:
-            conn.close()
+    conn = self._connect()
+    try:
+        out = {}
+        for row in conn.execute(
+            "SELECT key, value_json FROM memory_state WHERE user_id = ?",
+            (user_id,)
+        ).fetchall():
+            key, raw = (row["key"], row["value_json"]) if hasattr(row, "keys") else row
+            out[key] = json.loads(raw)
 
+        for key, val in fallback.items():
+            out.setdefault(key, val)
+
+        return out
+    finally:
+        conn.close()
+        
     def save_state(self, user_id: str, state: dict[str, Any]):
         conn = self._connect()
         try:
